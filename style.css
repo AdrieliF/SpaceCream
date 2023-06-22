@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-heading: 'Staatliches', cursive;
+  --ff-texting: 'Palanquin', sans-serif;
+  --ff-desktop: 'Roboto', sans-serif;
+  font-size: 62.5%;
+  --fs-heading: 4rem;
+  --fs-texting: 1.6rem;
+  --fs-card: 2rem;
+}
+
+body {
+  font-family: var(--ff-heading)
+}
+
+header {
+  background: hsla(218, 17%, 62%, 1);
+  
+  display: grid;
+  place-items: center;
+}
+
+header img {
+  padding: 3.2rem 0;
+}
+
+header p {
+  visibility: hidden;
+}
+
+.card1, .card2 {
+  display: none;
+}
+
+header h1 {
+  background: hsla(275, 18%, 79%, 1);
+  color: white;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto 2.9rem;
+  font-size: var(--fs-heading);
+  font-weight: 400;
+  line-height: 3.4rem;
+  letter-spacing: 0.5rem;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  padding: 0.7rem 0;
+}
+
+main {
+  padding: 1.8rem 3.2rem 5.6rem;
+  background: #EFF1FF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main p {
+  font-family: var(--ff-texting);
+  color: hsla(274, 84%, 12%, 1);
+  font-size: var(--fs-texting);
+  font-weight: normal;
+  line-height: 2rem;
+  text-align: center;
+  width: 30.5rem;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  gap: 3.2rem;
+  margin-top: 5rem;
+  height: fit-content;
+}
+
+.card img,
+.card1 img, 
+.card2 img {
+  width: 100%;
+  border-radius: 2rem;
+
+  animation: downtop 700ms 350ms backwards;
+}
+
+.card h2 {
+  background: #FEEAFA;
+  border-radius: 2rem;
+  font-size: var(--fs-card);
+  font-weight: 400;
+  line-height: 3.4rem;
+  letter-spacing: 0.2rem;
+  color: #4A4E69;
+  text-align: center;
+  width: 11.2rem;
+  position: absolute;
+  border-radius: 2rem;
+  top: 1.6rem;
+  right: 1.6rem;
+  
+  animation: topdown 700ms 350ms backwards;
+}
+
+footer {
+  visibility: hidden;
+}
+
+@media (min-width: 700px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  main p {
+    display: none;
+  }
+
+  header p {
+    visibility: visible;
+    font-family: var(--ff-desktop);
+    font-size: 2.4rem;
+    color: #FFFFFF;
+    font-size: var(--fs-texting);
+    font-weight: normal;
+    line-height: 2rem;
+    text-align: center;
+    height: 26.2rem;
+    padding: 2rem 3rem;
+  }
+
+  main {
+    background-color: white;
+  }
+
+  h2 {
+    visibility: hidden;
+  }
+  
+  #cards {
+    width: 100%;
+    display: grid;
+    grid:
+    "A B"
+    "D B"
+    "D C";
+    gap: 3.2rem;
+  }
+
+  .card {
+    margin-top: 0;
+  }
+
+  main div:nth-child(1) {
+    grid-area: A;
+  }
+
+  main div:nth-child(2) {
+    grid-area: B;
+  }
+
+  main div:nth-child(3) {
+    grid-area: C;
+  }
+
+  main div:nth-child(4) {
+    grid-area: D;
+  }
+
+  footer {
+    visibility: visible;
+    font-family: var(--ff-texting);
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    text-align: center;
+    margin-top: 4.3rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  main {
+    padding: 6.4rem 9rem;
+  }
+
+  header p {
+    padding: 3.2rem 5rem;
+  }
+
+  #cards {
+    width: 100%;
+    display: grid;
+    grid:
+    "A B E" auto
+    "D B F" auto
+    "D C F" auto
+    / 1fr 1fr 1fr;
+    gap: 3.2rem;
+  }
+
+  .card1, .card2 {
+    display: block;
+  }
+
+  .card, .card1, .card2 {
+    margin-top: 0;
+  }
+
+  main div:nth-child(1) {
+    grid-area: A;
+  }
+
+  main div:nth-child(2) {
+    grid-area: B;
+  }
+
+  main div:nth-child(3) {
+    grid-area: C;
+  }
+
+  main div:nth-child(4) {
+    grid-area: D;
+  }
+
+  .card1 {
+    grid-area: E;
+  }
+
+  .card2 {
+    grid-area: F;
+  }
+
+  footer {
+    margin-top: 5rem;
+  }
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
